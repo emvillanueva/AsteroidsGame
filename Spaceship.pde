@@ -23,6 +23,10 @@ public void hyperspace(){
   myCenterY=(int)(Math.random()*300);
   
 }
-
-
+public float getX(){
+  return (float)(myCenterX);
+}
+public float getY(){
+  return (float)(myCenterY);
+}
 }
