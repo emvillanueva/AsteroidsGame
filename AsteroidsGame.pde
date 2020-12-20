@@ -2,25 +2,17 @@ ArrayList <AsteroidClass> joe= new ArrayList <AsteroidClass>();
 Spaceship bob= new Spaceship();
 stars[] jill= new stars[300];
 ArrayList <Bullet> bill= new ArrayList <Bullet>();
+int hits=0;
+int asteroidNum=8;
 void mousePressed(){  redraw();}
-public void wait(int ms)
-{
-    try
-    {
-        Thread.sleep(ms);
-    }
-    catch(InterruptedException ex)
-    {
-        Thread.currentThread().interrupt();
-    }
-}
+
 public void setup(){
   size(500,500);
   for(int i=0; i< jill.length; i++)
   {
     jill[i]= new stars();
   }
-  for(int i=0; i<7; i++){
+  for(int i=0; i<asteroidNum; i++){
     joe.add(new AsteroidClass());
   
   }
@@ -28,15 +20,10 @@ public void setup(){
 
 }
 
-public void addAsteroids(){
-wait(10);
-joe.add(new AsteroidClass());
 
-}
 public void draw()
 {
   background(0);
-//void mousePressed(){  redraw();}
   for (int i=0; i<jill.length; i++)
   {
     jill[i].show();
@@ -51,15 +38,22 @@ public void draw()
   for (int i=0; i<bill.size(); i++){
   bill.get(i).move();
   bill.get(i).show();
-  addAsteroids();
+//addAsteroids();
 }
 
 for(int i=0; i<bill.size(); i++){
   for (int e=0; e<joe.size(); e++){
   float dis= dist(bill.get(i).getX(),bill.get(i).getY(), joe.get(e).getX(),joe.get(e).getY());
       if(dis<20){
-      joe.remove(e); bill.remove(i); break;
+      joe.remove(e); bill.remove(i); hits++; break;
                 }
+      if(hits==1){ 
+     asteroidNum=asteroidNum+2;
+  for(int h=0; h<asteroidNum; h++){
+    joe.add(new AsteroidClass());
+  
+  }   
+}
   }
 }
 for(int i=0; i<joe.size(); i++){
