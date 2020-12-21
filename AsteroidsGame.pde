@@ -4,7 +4,6 @@ stars[] jill= new stars[300];
 ArrayList <Bullet> bill= new ArrayList <Bullet>();
 int hits=0;
 int asteroidNum=8;
-void mousePressed(){  redraw();}
 
 public void setup(){
   size(500,500);
@@ -45,40 +44,12 @@ for(int i=0; i<bill.size(); i++){
   for (int e=0; e<joe.size(); e++){
   float dis= dist(bill.get(i).getX(),bill.get(i).getY(), joe.get(e).getX(),joe.get(e).getY());
       if(dis<20){
-      joe.remove(e); bill.remove(i); hits++; break;
+      joe.remove(e); bill.remove(i); break;
                 }
-      if(hits==1){ 
-     asteroidNum=asteroidNum+2;
-  for(int h=0; h<asteroidNum; h++){
-    joe.add(new AsteroidClass());
-  
-  }   
-}
+     
   }
 }
-for(int i=0; i<joe.size(); i++){
-  float dis= dist(joe.get(i).getX(),joe.get(i).getY(), bob.getX(),bob.getY());
-  if (dis<10){
-  while(1==1){
-  fill(0);
-  stroke(255,0,0);
-  bob.destroyed();
-  bob.show();
-    if(key =='w'){
-  }
-  if(key=='s'){
-  }
-  if(key == 'd'){
-  }
-  if(key == 'a'){
-  }
-  if(key == 'e'){
-  }
-  if(key == ' '){
-  }
 
-  }}
-}
 }  
   
 
